@@ -10,8 +10,10 @@ public class Character_move : MonoBehaviour
     Transform camera_player;
     Vector3 direccion_camara;
     public bool volar;
-    float y_caida; // Decidira si el objeto caera o sera manejado por el jugador
+    float y_caida=0; // Decidira si el objeto caera o sera manejado por el jugador
 
+    //Recordar que structs y primitivos pasan sus variables por valor
+    // clases y otros pasan su valor por referencia como el transform que siempre hara referencia a la camara
     // Start is called before the first frame update
     void Start() //inicializar variables
     {
@@ -25,43 +27,57 @@ public class Character_move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        revisar_caida();
+
         movimiento_player();
 
     }
    
     void movimiento_player() {
-        direccion_camara = camera_player.forward.normalized;
+        direccion_camara = camera_player.forward.normalized; // como es un valor se tiene que actualizar contantemente
         if (Can_move)
         {
             //Asegurarse que el objeto tenga gravedad activida o volara
-            controlador.velocity = new Vector3(direccion_camara.x, y_caida, direccion_camara.z) * vel; //recoje la direccion delantera de la camara y la multipica por velocidad
+            if (volar)
+            {
+                controlador.velocity = direccion_camara * vel; //recoje la direccion delantera de la camara y la multipica por velocidad
+            }
+            
+            else{
+                controlador.velocity = new Vector3(direccion_camara.x * vel, -.5f, direccion_camara.z * vel) ; // siempre estara cayendo (gravedad)
+            }
         }
       
     }
 
-    public void activate_move()
+    public void activate_move() //llamado con un trigger en otro objeto
     {
-        if (Can_move) {
-            controlador.isKinematic = true; // No sera afectado por las fisicas 
+        if (Can_move) { //Para no mover
+            controlador.isKinematic = true; //  sera afectado por las fisicas 
             Can_move = false;
         }
-        else
+        else //Para mover
         {
             Can_move = true;
-            controlador.isKinematic = false; // Sera afectado por las fisicas mientras se mueve
+            controlador.isKinematic = false; //No Sera afectado por las fisicas mientras se mueve
         }
       
     }
-    //Revisa si deberia seguir la camara (volar) o seguir la gravedad
-    void revisar_caida()
-    {
-        if (volar)
-        {
-            y_caida = direccion_camara.y; // vuela
+
+    public float tiempo_vuelo;
+    public void Empieza_volar() { //Deja volar
+        if (!volar) {//No deja hacer varias veces
+            volar = true;
+            this.GetComponent<Rigidbody>().useGravity = false;
+            StartCoroutine("contador2");
         }
+    
     }
-
-
-
+    IEnumerator contador2() //Deja caer
+    {
+        yield return new WaitForSeconds(tiempo_vuelo);
+        volar = false;
+        this.GetComponent<Rigidbody>().useGravity = true;
+    }
 }
+
+
