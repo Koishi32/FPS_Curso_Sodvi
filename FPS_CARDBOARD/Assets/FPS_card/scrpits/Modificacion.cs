@@ -7,8 +7,8 @@ public class Modificacion : MonoBehaviour
     public Image imagen_seleccion;
     bool staring_to;
     public float limit; // Entre mas grande mas lento se llena cuando mira
-    RaycastHit rayo_camara; // almacena informacion conseguida del objeto colisionada con el raycast
-    GvrPointerPhysicsRaycaster gvrPointer;
+    RaycastHit hit;
+    public float Hit_distance_camera;
     public  void Start()
     {
      staring_to = false;
@@ -20,14 +20,16 @@ public class Modificacion : MonoBehaviour
     {
         llenar();
     }
-    private void LateUpdate ()
+   private void LateUpdate ()
     {
-        
-        Transform camarita = Camera.main.transform; //transform de la main camera
+
+        Ray ray = Camera.main.ViewportPointToRay(Vector3.zero);
        
-        if (Physics.Raycast(camarita.position, camarita.forward, out rayo_camara, 2000, 0) && rayo_camara.transform.tag == "Interactuable")
+        if (Physics.Raycast(ray,out hit, Hit_distance_camera) )
         {
-            staring_to = true; // si mira a algo interactuable entonces la imagen se empezara a llenar
+            
+          //  staring_to = true; // si mira a algo interactuable entonces la imagen se empezara a llenar
+            print(hit.transform.name);
         }
         else {
             staring_to = false;
@@ -44,7 +46,7 @@ public class Modificacion : MonoBehaviour
             {
                 staring_to = false;
                 imagen_seleccion.fillAmount = 0; // Reinicia los parametros 
-                rayo_camara.transform.gameObject.GetComponent<Accion_Interac>().accion();
+                hit.transform.gameObject.GetComponent<Accion_Interac>().accion();
             }
             else
             {
