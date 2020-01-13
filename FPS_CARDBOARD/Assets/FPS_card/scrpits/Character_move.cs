@@ -10,8 +10,6 @@ public class Character_move : MonoBehaviour
     Transform camera_player;
     Vector3 direccion_camara;
     public bool volar;
-    float y_caida=0; // Decidira si el objeto caera o sera manejado por el jugador
-
     //Recordar que structs y primitivos pasan sus variables por valor
     // clases y otros pasan su valor por referencia como el transform que siempre hara referencia a la camara
     // Start is called before the first frame update
@@ -65,13 +63,12 @@ public class Character_move : MonoBehaviour
 
     public float tiempo_vuelo;
     public void Empieza_volar() { //Deja volar
-        if (!volar) {//No deja hacer varias veces
-            volar = true;
-            this.GetComponent<Rigidbody>().useGravity = false;
-            StartCoroutine("contador2");
-        }
-    
+        volar = true;
+        this.GetComponent<Rigidbody>().useGravity = false;
+        StopAllCoroutines(); // Permite que se se extienda el tiempo de vuelo
+         StartCoroutine("contador2");
     }
+
     IEnumerator contador2() //Deja caer
     {
         yield return new WaitForSeconds(tiempo_vuelo);

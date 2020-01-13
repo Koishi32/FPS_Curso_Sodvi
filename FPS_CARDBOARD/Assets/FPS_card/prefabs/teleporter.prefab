@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5531227574822376581}
   - component: {fileID: 5531227574822376580}
   - component: {fileID: 5531227574822376583}
-  - component: {fileID: 6397218166407502861}
+  - component: {fileID: 5045495862383500821}
   m_Layer: 0
   m_Name: teleporter
   m_TagString: Untagged
@@ -94,7 +94,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &6397218166407502861
+--- !u!114 &5045495862383500821
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,8 +103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5531227574822376582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e35a8e9973c5f74682f6768ec739488, type: 3}
+  m_Script: {fileID: 11500000, guid: 04b27c36a15ab54459ea2cb0ec99f886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rot_vel: 0
-  Personaje_teleport: {fileID: 0}
+  opciones: tele
