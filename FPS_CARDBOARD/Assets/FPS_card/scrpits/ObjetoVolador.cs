@@ -6,7 +6,7 @@ public class ObjetoVolador : Seleccion
 {
     public Character_move personaje;
     
-    public override void Start()
+    public override void Start() // override en el start para que haga mas cosas en el inicio
     {
         base.Start(); /// hace el start del objeto del que hereda
         personaje = GameObject.Find("Personaje").GetComponent<Character_move>();
@@ -16,7 +16,7 @@ public class ObjetoVolador : Seleccion
         personaje.Empieza_volar();
         StartCoroutine("contador");
     }
-    IEnumerator contador() {
+    IEnumerator contador() { // Destruye este objeto para que ya no pueda usarlo otra vez
         
        yield return new WaitForSeconds(2);
         Destroy(this.gameObject);

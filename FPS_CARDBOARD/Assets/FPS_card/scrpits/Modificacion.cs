@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Modificacion : MonoBehaviour
+public class Modificacion : Seleccion
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform Personaje_teleport;
+    public override void Start()
     {
-        
+        base.Start();
+        Personaje_teleport = GameObject.Find("Personaje").GetComponent<Transform>();
     }
-
-    // Update is called once per frame
-    void Update()
+    // Start is called before the first frame update
+    public void llevar_aqui() // funcion a activar para cuando sea mirada por el usuario
     {
-        
+        Personaje_teleport.position = this.transform.position;
+        print("lleva");
     }
 }

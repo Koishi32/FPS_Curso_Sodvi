@@ -6,7 +6,7 @@ public class Seleccion : MonoBehaviour
 {
     public float rot_vel;
     bool turnsAround;
-    Color original_color;
+    Color original_color; // Para cambiar el color
     public virtual void Start() // permite que se sobreescriba el objeto
     {
         original_color = gameObject.GetComponent<Renderer>().material.color;
@@ -18,13 +18,13 @@ public class Seleccion : MonoBehaviour
         turnsAround = true;
     }
 
-    private void Update()
+    private void Update() // para que siga girando
     {
         if(turnsAround)
         this.transform.Rotate(new Vector3(0, rot_vel * Time.deltaTime, 0), Space.Self);
     }
 
-    public void out_select() {
+    public void out_select() { // retornar el color ala normalidad
         gameObject.GetComponent<Renderer>().material.color = original_color;
         turnsAround = false;
     }
