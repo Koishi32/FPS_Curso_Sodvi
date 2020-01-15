@@ -18,7 +18,7 @@ public class ObjetoVolador : Seleccion
     }
     IEnumerator contador() { // Destruye este objeto para que ya no pueda usarlo otra vez
         
-       yield return new WaitForSeconds(2);
+       yield return new WaitForSeconds(1);
         Destroy(this.gameObject);
     }
     

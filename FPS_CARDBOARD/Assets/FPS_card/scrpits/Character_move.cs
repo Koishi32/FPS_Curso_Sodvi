@@ -10,6 +10,7 @@ public class Character_move : MonoBehaviour
     Transform camera_player;
     Vector3 direccion_camara;
     public bool volar;
+    public float gravedad;
     //Recordar que structs y primitivos pasan sus variables por valor
     // clases y otros pasan su valor por referencia como el transform que siempre hara referencia a la camara
     // Start is called before the first frame update
@@ -37,11 +38,11 @@ public class Character_move : MonoBehaviour
             //Asegurarse que el objeto tenga gravedad activida o volara
             if (volar)
             {
-                controlador.velocity = direccion_camara * vel; //recoje la direccion delantera de la camara y la multipica por velocidad
+                controlador.velocity = direccion_camara * vel ; //recoje la direccion delantera de la camara y la multipica por velocidad
             }
             
             else{
-                controlador.velocity = new Vector3(direccion_camara.x * vel, -.5f, direccion_camara.z * vel) ; // siempre estara cayendo (gravedad)
+                controlador.velocity = new Vector3(direccion_camara.x * vel, -gravedad, direccion_camara.z * vel) ; // siempre estara cayendo (gravedad)
             }
         }
       
@@ -64,7 +65,7 @@ public class Character_move : MonoBehaviour
     public float tiempo_vuelo;
     public void Empieza_volar() { //Deja volar
         volar = true;
-        this.GetComponent<Rigidbody>().useGravity = false;
+        //this.GetComponent<Rigidbody>().useGravity = false;
         StopAllCoroutines(); // Permite que se se extienda el tiempo de vuelo
          StartCoroutine("contador2");
     }
@@ -73,7 +74,7 @@ public class Character_move : MonoBehaviour
     {
         yield return new WaitForSeconds(tiempo_vuelo);
         volar = false;
-        this.GetComponent<Rigidbody>().useGravity = true;
+        //this.GetComponent<Rigidbody>().useGravity = true;
     }
 }
 

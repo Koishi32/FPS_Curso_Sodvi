@@ -14,8 +14,15 @@ public class Seleccion : MonoBehaviour
     }
 
    public void select_rot() { //cambiaa color y deja girar
-        gameObject.GetComponent<Renderer>().material.color = Color.blue;
-        turnsAround = true;
+        if (!turnsAround)
+        {
+            turnsAround = true;
+            gameObject.GetComponent<Renderer>().material.color = Color.blue;
+        }
+        else {
+            turnsAround = false;
+            gameObject.GetComponent<Renderer>().material.color = original_color;
+        }
     }
 
     private void Update() // para que siga girando
@@ -24,8 +31,5 @@ public class Seleccion : MonoBehaviour
         this.transform.Rotate(new Vector3(0, rot_vel * Time.deltaTime, 0), Space.Self);
     }
 
-    public void out_select() { // retornar el color ala normalidad
-        gameObject.GetComponent<Renderer>().material.color = original_color;
-        turnsAround = false;
-    }
+   
 }
