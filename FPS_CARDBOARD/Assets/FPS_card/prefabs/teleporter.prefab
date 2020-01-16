@@ -108,6 +108,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   opciones: tele
+  recarga_portal: 5
+  offset_y: 2
 --- !u!114 &7811307463475080739
 MonoBehaviour:
   m_ObjectHideFlags: 0

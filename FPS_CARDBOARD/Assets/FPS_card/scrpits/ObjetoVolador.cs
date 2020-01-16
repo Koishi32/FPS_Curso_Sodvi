@@ -9,7 +9,7 @@ public class ObjetoVolador : Seleccion
     public override void Start() // override en el start para que haga mas cosas en el inicio
     {
         base.Start(); /// hace el start del objeto del que hereda
-        personaje = GameObject.Find("Personaje").GetComponent<Character_move>();
+        personaje = GameObject.FindGameObjectWithTag("Player").GetComponent<Character_move>();
     }
     // Start is called before the first frame update
     public void click_temporizador() {

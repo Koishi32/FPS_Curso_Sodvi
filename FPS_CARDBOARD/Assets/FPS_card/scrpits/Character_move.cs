@@ -38,8 +38,8 @@ public class Character_move : MonoBehaviour
             //Asegurarse que el objeto tenga gravedad activida o volara
             if (volar)
             {
-                controlador.velocity = direccion_camara * vel ; //recoje la direccion delantera de la camara y la multipica por velocidad
-            }
+                controlador.velocity = direccion_camara * vel/2; //recoje la direccion delantera de la camara y la multipica por velocidad
+            }// Se divide entre dos para que no vuele tan rapido
             
             else{
                 controlador.velocity = new Vector3(direccion_camara.x * vel, -gravedad, direccion_camara.z * vel) ; // siempre estara cayendo (gravedad)
@@ -67,10 +67,10 @@ public class Character_move : MonoBehaviour
         volar = true;
         //this.GetComponent<Rigidbody>().useGravity = false;
         StopAllCoroutines(); // Permite que se se extienda el tiempo de vuelo
-         StartCoroutine("contador2");
+         StartCoroutine("contador1");
     }
 
-    IEnumerator contador2() //Deja caer
+    IEnumerator contador1() //Deja caer
     {
         yield return new WaitForSeconds(tiempo_vuelo);
         volar = false;

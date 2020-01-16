@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Modificacion : MonoBehaviour
 {
     public Image imagen_seleccion;
-    bool staring_to;
+    public bool staring_to;
     public float limit; // Entre mas grande mas lento se llena cuando mira
      RaycastHit rayo_info;
     public  void Start()
@@ -28,12 +28,12 @@ public class Modificacion : MonoBehaviour
         {
             
             //(0,0) siendo esquina inferior izquierda y (1,1) esquina superior derecha
-            if (Physics.Raycast(ray, out rayo_info, Mathf.Infinity) && rayo_info.collider.transform.tag == "interactuable")
+            if (Physics.Raycast(ray, out rayo_info, Mathf.Infinity) && rayo_info.collider.tag == "Interactuable")
             {  //Recoje la informacion de ray para rayo_info a una distancia de 20 unidades
 
                     rayo_info.collider.transform.GetComponent<Accion_Interac>().accion(); // Ejecuta la accion del objeto interactuable
             }
-            print(rayo_info.collider.name);
+           // print(rayo_info.collider.tag);
         }
     }
     // Se llamara estas funciones desde el GVR editor para actvivar y desactivar el puntero
