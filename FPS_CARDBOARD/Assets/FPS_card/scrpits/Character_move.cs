@@ -11,12 +11,16 @@ public class Character_move : MonoBehaviour
     Vector3 direccion_camara;
     public bool volar;
     public float gravedad;
+    public GameObject volador;
+    public GameObject No_volador;
     //Recordar que structs y primitivos pasan sus variables por valor
     // clases y otros pasan su valor por referencia como el transform que siempre hara referencia a la camara
     // Start is called before the first frame update
     void Start() //inicializar variables
     {
         volar = false;
+        No_volador.SetActive(true);
+        volador.SetActive(false);
         controlador = this.GetComponent<Rigidbody>();
         Can_move = false;
         camera_player = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Transform>(); //direccion delantera de la camara  
@@ -28,7 +32,17 @@ public class Character_move : MonoBehaviour
     {
 
         movimiento_player();
+        checa_sprite();
 
+    }
+    void checa_sprite() {
+        if (volar) {
+            volador.SetActive(true);
+            No_volador.SetActive(false);
+                } else {
+            volador.SetActive(false);
+            No_volador.SetActive(true);
+        }
     }
    
     void movimiento_player() {
