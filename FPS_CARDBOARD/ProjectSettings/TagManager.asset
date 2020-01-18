@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Interactuable
   - menu
+  - proyectil
+  - Enemigo
+  - Portal
   layers:
   - Default
   - TransparentFX

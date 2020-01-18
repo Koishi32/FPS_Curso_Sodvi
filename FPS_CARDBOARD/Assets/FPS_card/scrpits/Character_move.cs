@@ -13,6 +13,7 @@ public class Character_move : MonoBehaviour
     public float gravedad;
     public GameObject volador;
     public GameObject No_volador;
+    public Accion_Interac Activar_manual;
     //Recordar que structs y primitivos pasan sus variables por valor
     // clases y otros pasan su valor por referencia como el transform que siempre hara referencia a la camara
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class Character_move : MonoBehaviour
 
         movimiento_player();
         checa_sprite();
+        Disparar();
 
     }
     void checa_sprite() {
@@ -44,7 +46,12 @@ public class Character_move : MonoBehaviour
             No_volador.SetActive(true);
         }
     }
-   
+    void Disparar() {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Activar_manual.Enemigo_act();
+        }
+    }
     void movimiento_player() {
         direccion_camara = camera_player.forward.normalized; // como es un valor se tiene que actualizar contantemente
         if (Can_move)

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7811307463475080739}
   m_Layer: 0
   m_Name: teleporter
-  m_TagString: Interactuable
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,9 +107,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b27c36a15ab54459ea2cb0ec99f886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opciones: tele
   recarga_portal: 5
   offset_y: 2
+  lugar_instancia: {fileID: 0}
+  fuerza: 0
+  proyectil: {fileID: 0}
 --- !u!114 &7811307463475080739
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,6 +30,4 @@ public class Seleccion : MonoBehaviour
         if(turnsAround)
         this.transform.Rotate(new Vector3(0, rot_vel * Time.deltaTime, 0), Space.Self);
     }
-
-   
 }

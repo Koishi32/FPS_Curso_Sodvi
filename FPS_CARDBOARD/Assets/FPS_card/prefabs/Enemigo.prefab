@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 5369597771538481391}
   - component: {fileID: 5369597771538481388}
   - component: {fileID: 380510698653518167}
+  - component: {fileID: 198551449}
   m_Layer: 0
   m_Name: Enemigo
-  m_TagString: Interactuable
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,12 +108,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 0
+  - eventID: 1
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 0}
-          m_MethodName: mirar
+          m_MethodName: no_mirar
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -122,12 +123,12 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventID: 1
+  - eventID: 0
     callback:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 0}
-          m_MethodName: no_mirar
+          m_MethodName: mirar
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -149,6 +150,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b27c36a15ab54459ea2cb0ec99f886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opciones: Ene
   recarga_portal: 0
   offset_y: 0
+  lugar_instancia: {fileID: 0}
+  fuerza: 3
+  proyectil: {fileID: 8244137123301390800, guid: e536e049bcd240c459d85b9924229977,
+    type: 3}
+--- !u!114 &198551449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5369597771538481389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7ade8346f33694e8e711487be976c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mylife: 30
+  damage_taken: 10
+  sistema_particulas: {fileID: 673343505318084407, guid: 77fd0e703452ec8489bc15af4cb624a9,
+    type: 3}
