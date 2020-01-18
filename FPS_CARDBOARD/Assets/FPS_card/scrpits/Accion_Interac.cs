@@ -10,13 +10,13 @@ public class Accion_Interac : MonoBehaviour
     public float offset_y; // distancia que aparecera por arriba del portal
     Transform posicionPlayer;
     public GameObject sistema_particulas;
-    public void Start()
+    public  void Start()
     {
         puede_usar = true;
         posicionPlayer = GameObject.FindGameObjectWithTag("Player").transform;
         
     }
-    public void accion() { // depende de lo quese quiera hacer con la mira
+    public  void accion() { // depende de lo quese quiera hacer con la mira
         switch (opciones){
             case "tele":
                 if (puede_usar)

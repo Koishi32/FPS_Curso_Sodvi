@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/FPS_card/Scenes/Escena1.unity
+- path: Assets/FPS_card/Scenes/Menu1.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
