@@ -16,3 +16,5 @@ Walk_Icon:
 https://icons8.com/icons/set/walking Walking icon icon by Icons8
 Menu_texture:
 https://ya-webdesign.com/startdownload.html
+Maze / laberinto:
+https://www.turbosquid.com/Search/Artists/kabeltelevizio
