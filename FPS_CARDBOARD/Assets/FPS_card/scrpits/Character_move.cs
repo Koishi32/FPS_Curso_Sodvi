@@ -35,7 +35,9 @@ public class Character_move : MonoBehaviour
         movimiento_player();
         checa_sprite();
         Disparar();
-
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
     }
     void checa_sprite() {
         if (volar) {

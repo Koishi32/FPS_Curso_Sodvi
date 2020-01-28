@@ -30,7 +30,7 @@ public class Accion_Interac : MonoBehaviour
 
     public void Enemigo_act() {
         var bala = Instantiate(proyectil,lugar_instancia.position,Quaternion.identity);
-        bala.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * fuerza, ForceMode.Impulse);
+        
         posicionPlayer.gameObject.GetComponentInChildren<Image>().fillAmount = 0;
         posicionPlayer.gameObject.GetComponentInChildren<Modificacion>().staring_to = false; // reinica parametros del puntero
         posicionPlayer.gameObject.GetComponentInChildren<Modificacion>().no_mirar();
